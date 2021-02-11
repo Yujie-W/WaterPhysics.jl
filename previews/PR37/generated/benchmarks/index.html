@@ -13,13 +13,13 @@ gas_CO₂ = TraceGasCO₂();</code></pre><h2 id="Capillary-pressure"><a class="d
 @btime capillary_pressure($rand_r, $rand_T);
 @btime capillary_pressure($rand_r, $rand_T, $rand_α);</code></pre><pre class="documenter-example-output">
 Benchmarking capillary_pressure functions...
-  12.725 ns (0 allocations: 0 bytes)
-  23.092 ns (0 allocations: 0 bytes)</pre><h2 id="Diffusive-coefficient"><a class="docs-heading-anchor" href="#Diffusive-coefficient">Diffusive coefficient</a><a id="Diffusive-coefficient-1"></a><a class="docs-heading-anchor-permalink" href="#Diffusive-coefficient" title="Permalink"></a></h2><pre><code class="language-julia">println(&quot;\nBenchmarking diffusive_coefficient functions...&quot;);
+  15.616 ns (0 allocations: 0 bytes)
+  27.739 ns (0 allocations: 0 bytes)</pre><h2 id="Diffusive-coefficient"><a class="docs-heading-anchor" href="#Diffusive-coefficient">Diffusive coefficient</a><a id="Diffusive-coefficient-1"></a><a class="docs-heading-anchor-permalink" href="#Diffusive-coefficient" title="Permalink"></a></h2><pre><code class="language-julia">println(&quot;\nBenchmarking diffusive_coefficient functions...&quot;);
 @btime diffusive_coefficient($rand_T, $gas_CO₂, $gas_air);
 @btime relative_diffusive_coefficient($rand_T);</code></pre><pre class="documenter-example-output">
 Benchmarking diffusive_coefficient functions...
-  10.400 ns (0 allocations: 0 bytes)
-  10.110 ns (0 allocations: 0 bytes)</pre><h2 id="Latent-heat-of-evaporation"><a class="docs-heading-anchor" href="#Latent-heat-of-evaporation">Latent heat of evaporation</a><a id="Latent-heat-of-evaporation-1"></a><a class="docs-heading-anchor-permalink" href="#Latent-heat-of-evaporation" title="Permalink"></a></h2><pre><code class="language-julia">println(&quot;\nBenchmarking latent_heat_vapor functions...&quot;);
+  13.013 ns (0 allocations: 0 bytes)
+  12.500 ns (0 allocations: 0 bytes)</pre><h2 id="Latent-heat-of-evaporation"><a class="docs-heading-anchor" href="#Latent-heat-of-evaporation">Latent heat of evaporation</a><a id="Latent-heat-of-evaporation-1"></a><a class="docs-heading-anchor-permalink" href="#Latent-heat-of-evaporation" title="Permalink"></a></h2><pre><code class="language-julia">println(&quot;\nBenchmarking latent_heat_vapor functions...&quot;);
 @btime latent_heat_vapor($rand_T);</code></pre><pre class="documenter-example-output">
 Benchmarking latent_heat_vapor functions...
   0.001 ns (0 allocations: 0 bytes)</pre><h2 id="Saturation-vapor-pressure"><a class="docs-heading-anchor" href="#Saturation-vapor-pressure">Saturation vapor pressure</a><a id="Saturation-vapor-pressure-1"></a><a class="docs-heading-anchor-permalink" href="#Saturation-vapor-pressure" title="Permalink"></a></h2><pre><code class="language-julia">println(&quot;\nBenchmarking saturation_vapor_pressure functions...&quot;);
@@ -30,17 +30,17 @@ Benchmarking latent_heat_vapor functions...
 @btime saturation_vapor_pressure_slope($rand_T, $rand_Ψ);</code></pre><pre class="documenter-example-output">
 Benchmarking saturation_vapor_pressure functions...
   0.001 ns (0 allocations: 0 bytes)
-  19.057 ns (0 allocations: 0 bytes)
-  20.662 ns (0 allocations: 0 bytes)
+  22.892 ns (0 allocations: 0 bytes)
+  25.301 ns (0 allocations: 0 bytes)
   0.001 ns (0 allocations: 0 bytes)
   0.001 ns (0 allocations: 0 bytes)</pre><h2 id="Surface-tension"><a class="docs-heading-anchor" href="#Surface-tension">Surface tension</a><a id="Surface-tension-1"></a><a class="docs-heading-anchor-permalink" href="#Surface-tension" title="Permalink"></a></h2><pre><code class="language-julia">println(&quot;\nBenchmarking surface_tension functions...&quot;);
 @btime surface_tension($rand_T);
 @btime relative_surface_tension($rand_T);</code></pre><pre class="documenter-example-output">
 Benchmarking surface_tension functions...
-  13.514 ns (0 allocations: 0 bytes)
-  12.212 ns (0 allocations: 0 bytes)</pre><h2 id="Viscosity"><a class="docs-heading-anchor" href="#Viscosity">Viscosity</a><a id="Viscosity-1"></a><a class="docs-heading-anchor-permalink" href="#Viscosity" title="Permalink"></a></h2><pre><code class="language-julia">println(&quot;\nBenchmarking viscosity functions...&quot;);
+  14.128 ns (0 allocations: 0 bytes)
+  14.830 ns (0 allocations: 0 bytes)</pre><h2 id="Viscosity"><a class="docs-heading-anchor" href="#Viscosity">Viscosity</a><a id="Viscosity-1"></a><a class="docs-heading-anchor-permalink" href="#Viscosity" title="Permalink"></a></h2><pre><code class="language-julia">println(&quot;\nBenchmarking viscosity functions...&quot;);
 @btime viscosity($rand_T);
 @btime relative_viscosity($rand_T);</code></pre><pre class="documenter-example-output">
 Benchmarking viscosity functions...
-  7.900 ns (0 allocations: 0 bytes)
-  5.300 ns (0 allocations: 0 bytes)</pre><hr/><p><em>This page was generated using <a href="https://github.com/fredrikekre/Literate.jl">Literate.jl</a>.</em></p></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../examples/">« Examples</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Thursday 11 February 2021 21:21">Thursday 11 February 2021</span>. Using Julia version 1.5.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+  9.500 ns (0 allocations: 0 bytes)
+  6.300 ns (0 allocations: 0 bytes)</pre><hr/><p><em>This page was generated using <a href="https://github.com/fredrikekre/Literate.jl">Literate.jl</a>.</em></p></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../examples/">« Examples</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Thursday 11 February 2021 21:24">Thursday 11 February 2021</span>. Using Julia version 1.5.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
