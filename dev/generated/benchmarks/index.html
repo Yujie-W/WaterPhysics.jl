@@ -8,16 +8,16 @@ rand_T = rand(FT) + 298;
 rand_α = rand(FT) * 50;
 rand_Ψ = rand(FT) - 3;
 
-gas_air = TraceGasAir();
-gas_CO₂ = TraceGasCO₂();</code></pre><h2 id="Capillary-pressure"><a class="docs-heading-anchor" href="#Capillary-pressure">Capillary pressure</a><a id="Capillary-pressure-1"></a><a class="docs-heading-anchor-permalink" href="#Capillary-pressure" title="Permalink"></a></h2><pre><code class="language-julia">@info &quot;Benchmarking capillary_pressure functions...&quot;;
+gas_air = TraceGasAir{FT}();
+gas_CO₂ = TraceGasCO₂{FT}();</code></pre><h2 id="Capillary-pressure"><a class="docs-heading-anchor" href="#Capillary-pressure">Capillary pressure</a><a id="Capillary-pressure-1"></a><a class="docs-heading-anchor-permalink" href="#Capillary-pressure" title="Permalink"></a></h2><pre><code class="language-julia">@info &quot;Benchmarking capillary_pressure functions...&quot;;
 @btime capillary_pressure($rand_r, $rand_T);
 @btime capillary_pressure($rand_r, $rand_T, $rand_α);</code></pre><pre class="documenter-example-output">[ Info: Benchmarking capillary_pressure functions...
-  15.700 ns (0 allocations: 0 bytes)
-  28.672 ns (0 allocations: 0 bytes)</pre><h2 id="Diffusive-coefficient"><a class="docs-heading-anchor" href="#Diffusive-coefficient">Diffusive coefficient</a><a id="Diffusive-coefficient-1"></a><a class="docs-heading-anchor-permalink" href="#Diffusive-coefficient" title="Permalink"></a></h2><pre><code class="language-julia">@info &quot;Benchmarking diffusive_coefficient functions...&quot;;
+  14.616 ns (0 allocations: 0 bytes)
+  23.922 ns (0 allocations: 0 bytes)</pre><h2 id="Diffusive-coefficient"><a class="docs-heading-anchor" href="#Diffusive-coefficient">Diffusive coefficient</a><a id="Diffusive-coefficient-1"></a><a class="docs-heading-anchor-permalink" href="#Diffusive-coefficient" title="Permalink"></a></h2><pre><code class="language-julia">@info &quot;Benchmarking diffusive_coefficient functions...&quot;;
 @btime diffusive_coefficient($rand_T, $gas_CO₂, $gas_air);
 @btime relative_diffusive_coefficient($rand_T);</code></pre><pre class="documenter-example-output">[ Info: Benchmarking diffusive_coefficient functions...
-  15.631 ns (0 allocations: 0 bytes)
-  13.814 ns (0 allocations: 0 bytes)</pre><h2 id="Latent-heat-of-evaporation"><a class="docs-heading-anchor" href="#Latent-heat-of-evaporation">Latent heat of evaporation</a><a id="Latent-heat-of-evaporation-1"></a><a class="docs-heading-anchor-permalink" href="#Latent-heat-of-evaporation" title="Permalink"></a></h2><pre><code class="language-julia">@info &quot;Benchmarking latent_heat_vapor functions...&quot;;
+  10.611 ns (0 allocations: 0 bytes)
+  10.300 ns (0 allocations: 0 bytes)</pre><h2 id="Latent-heat-of-evaporation"><a class="docs-heading-anchor" href="#Latent-heat-of-evaporation">Latent heat of evaporation</a><a id="Latent-heat-of-evaporation-1"></a><a class="docs-heading-anchor-permalink" href="#Latent-heat-of-evaporation" title="Permalink"></a></h2><pre><code class="language-julia">@info &quot;Benchmarking latent_heat_vapor functions...&quot;;
 @btime latent_heat_vapor($rand_T);</code></pre><pre class="documenter-example-output">[ Info: Benchmarking latent_heat_vapor functions...
   0.001 ns (0 allocations: 0 bytes)</pre><h2 id="Saturation-vapor-pressure"><a class="docs-heading-anchor" href="#Saturation-vapor-pressure">Saturation vapor pressure</a><a id="Saturation-vapor-pressure-1"></a><a class="docs-heading-anchor-permalink" href="#Saturation-vapor-pressure" title="Permalink"></a></h2><pre><code class="language-julia">@info &quot;Benchmarking saturation_vapor_pressure functions...&quot;;
 @btime pressure_correction($rand_T, $rand_Ψ);
@@ -26,15 +26,15 @@ gas_CO₂ = TraceGasCO₂();</code></pre><h2 id="Capillary-pressure"><a class="d
 @btime saturation_vapor_pressure_slope($rand_T);
 @btime saturation_vapor_pressure_slope($rand_T, $rand_Ψ);</code></pre><pre class="documenter-example-output">[ Info: Benchmarking saturation_vapor_pressure functions...
   0.001 ns (0 allocations: 0 bytes)
-  23.494 ns (0 allocations: 0 bytes)
-  26.788 ns (0 allocations: 0 bytes)
+  18.738 ns (0 allocations: 0 bytes)
+  21.666 ns (0 allocations: 0 bytes)
   0.001 ns (0 allocations: 0 bytes)
   0.001 ns (0 allocations: 0 bytes)</pre><h2 id="Surface-tension"><a class="docs-heading-anchor" href="#Surface-tension">Surface tension</a><a id="Surface-tension-1"></a><a class="docs-heading-anchor-permalink" href="#Surface-tension" title="Permalink"></a></h2><pre><code class="language-julia">@info &quot;Benchmarking surface_tension functions...&quot;;
 @btime surface_tension($rand_T);
 @btime relative_surface_tension($rand_T);</code></pre><pre class="documenter-example-output">[ Info: Benchmarking surface_tension functions...
-  16.232 ns (0 allocations: 0 bytes)
-  17.635 ns (0 allocations: 0 bytes)</pre><h2 id="Viscosity"><a class="docs-heading-anchor" href="#Viscosity">Viscosity</a><a id="Viscosity-1"></a><a class="docs-heading-anchor-permalink" href="#Viscosity" title="Permalink"></a></h2><pre><code class="language-julia">@info &quot;Benchmarking viscosity functions...&quot;;
+  11.913 ns (0 allocations: 0 bytes)
+  12.514 ns (0 allocations: 0 bytes)</pre><h2 id="Viscosity"><a class="docs-heading-anchor" href="#Viscosity">Viscosity</a><a id="Viscosity-1"></a><a class="docs-heading-anchor-permalink" href="#Viscosity" title="Permalink"></a></h2><pre><code class="language-julia">@info &quot;Benchmarking viscosity functions...&quot;;
 @btime viscosity($rand_T);
 @btime relative_viscosity($rand_T);</code></pre><pre class="documenter-example-output">[ Info: Benchmarking viscosity functions...
-  11.011 ns (0 allocations: 0 bytes)
-  9.209 ns (0 allocations: 0 bytes)</pre><hr/><p><em>This page was generated using <a href="https://github.com/fredrikekre/Literate.jl">Literate.jl</a>.</em></p></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../examples/">« Examples</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Monday 15 March 2021 19:27">Monday 15 March 2021</span>. Using Julia version 1.5.4.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+  7.608 ns (0 allocations: 0 bytes)
+  6.200 ns (0 allocations: 0 bytes)</pre><hr/><p><em>This page was generated using <a href="https://github.com/fredrikekre/Literate.jl">Literate.jl</a>.</em></p></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../examples/">« Examples</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Monday 15 March 2021 22:24">Monday 15 March 2021</span>. Using Julia version 1.5.4.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>

@@ -46,7 +46,7 @@ preview_data(Ts .- FT(273.15), Dr,
              "rDc ~ T", "Temperature (°C)", "Relative diffusive coefficient")
 
 Ts = collect(FT, 0:1:50) .+ FT(273.15);
-Ds = diffusive_coefficient.(Ts, [TraceGasCO₂()], [TraceGasAir()]);
+Ds = diffusive_coefficient.(Ts, [TraceGasCO₂{FT}()], [TraceGasAir{FT}()]);
 
 preview_data(Ts .- FT(273.15), Ds,
              "Dc ~ T", "Temperature (°C)", "Diffusive coefficient (m² s⁻¹)")

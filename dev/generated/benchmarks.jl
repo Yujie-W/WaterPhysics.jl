@@ -9,8 +9,8 @@ rand_T = rand(FT) + 298;
 rand_α = rand(FT) * 50;
 rand_Ψ = rand(FT) - 3;
 
-gas_air = TraceGasAir();
-gas_CO₂ = TraceGasCO₂();
+gas_air = TraceGasAir{FT}();
+gas_CO₂ = TraceGasCO₂{FT}();
 
 @info "Benchmarking capillary_pressure functions...";
 @btime capillary_pressure($rand_r, $rand_T);
