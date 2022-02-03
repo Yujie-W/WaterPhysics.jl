@@ -12,29 +12,29 @@ rand_Ψ = rand(FT) - 3;
 gas_air = TraceGasAir{FT}();
 gas_CO₂ = TraceGasCO₂{FT}();
 
-@info "Benchmarking capillary_pressure functions...";
+# Benchmarking capillary_pressure functions
 @btime capillary_pressure($rand_r, $rand_T);
 @btime capillary_pressure($rand_r, $rand_T, $rand_α);
 
-@info "Benchmarking diffusive_coefficient functions...";
+# Benchmarking diffusive_coefficient functions
 @btime diffusive_coefficient($rand_T, $gas_CO₂, $gas_air);
 @btime relative_diffusive_coefficient($rand_T);
 
-@info "Benchmarking latent_heat_vapor functions...";
+# Benchmarking latent_heat_vapor function
 @btime latent_heat_vapor($rand_T);
 
-@info "Benchmarking saturation_vapor_pressure functions...";
+# Benchmarking saturation_vapor_pressure functions
 @btime pressure_correction($rand_T, $rand_Ψ);
 @btime saturation_vapor_pressure($rand_T);
 @btime saturation_vapor_pressure($rand_T, $rand_Ψ);
 @btime saturation_vapor_pressure_slope($rand_T);
 @btime saturation_vapor_pressure_slope($rand_T, $rand_Ψ);
 
-@info "Benchmarking surface_tension functions...";
+# Benchmarking surface_tension functions
 @btime surface_tension($rand_T);
 @btime relative_surface_tension($rand_T);
 
-@info "Benchmarking viscosity functions...";
+# Benchmarking viscosity functions
 @btime viscosity($rand_T);
 @btime relative_viscosity($rand_T);
 
